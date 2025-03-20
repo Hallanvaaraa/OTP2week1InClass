@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <build>
-    <finalName>Cart</finalName>
+    <finalName>CartApp</finalName>
     <plugins>
       <!-- Compiler Plugin for setting the Java version -->
       <plugin>

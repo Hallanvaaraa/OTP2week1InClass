@@ -4,4 +4,4 @@ WORKDIR /app
 COPY pom.xml /app/
 COPY . /app/
 RUN mvn package
-CMD ["java", "-jar", "target/Cart.jar"]
+CMD ["java", "-jar", "target/CartApp.jar"]
