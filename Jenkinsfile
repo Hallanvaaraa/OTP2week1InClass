@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Hallanvaaraa/OTP2week1InClass.git'
+                git 'https://github.com/Hallanvaaraa/OTP2week1InClass.git'
             }
         }
         stage('Build') {
