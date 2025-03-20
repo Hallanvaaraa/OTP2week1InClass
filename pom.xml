@@ -37,7 +37,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>Cart</mainClass> <!-- Correct main class -->
+              <mainClass>CartApp/Cart</mainClass> <!-- Correct main class -->
             </manifest>
           </archive>
         </configuration>
