@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <build>
-    <finalName>tripcalaculator</finalName>
+    <finalName>Cart</finalName>
     <plugins>
       <!-- Compiler Plugin for setting the Java version -->
       <plugin>
@@ -37,7 +37,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>TripCostCalculator</mainClass> <!-- Correct main class -->
+              <mainClass>Cart</mainClass> <!-- Correct main class -->
             </manifest>
           </archive>
         </configuration>
