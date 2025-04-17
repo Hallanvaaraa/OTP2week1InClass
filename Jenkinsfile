@@ -1,6 +1,10 @@
 pipeline {
     agent any
     environment {
+                // Define SonarQube server name
+                SONARQUBE_SERVER = 'SonarQubeServer'
+                // Define SonarQube token
+                SONARQUBE_TOKEN = 'squ_17d808cada009d8d8ded7f20fa3608f94f587352'
                 // Define Docker Hub credentials ID
                 DOCKERHUB_CREDENTIALS_ID = '797c8c7b-dc68-40fd-9269-60fe100f457c'
                 // Define Docker Hub repository name
@@ -40,6 +44,21 @@ pipeline {
         stage('Publish Coverage Report') {
             steps {
                 jacoco()
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv(SONARQUBE_SERVER) {
+                bat """
+                sonar-scanner ^
+                    -Dsonar.projectKey=devops-demo ^
+                    -Dsonar.sources=src ^
+                    -Dsonar.projectName=OTP2InClass ^
+                    -Dsonar.host.url=http://localhost:9000 ^
+                    -Dsonar.login=${SONARQUBE_TOKEN} ^
+                    -Dsonar.java.binaries=target/classes ^
+                """}
+                }
             }
         }
         stage('Build Docker Image') {
