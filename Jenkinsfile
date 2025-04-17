@@ -4,7 +4,7 @@ pipeline {
                 // Define SonarQube server name
                 SONARQUBE_SERVER = 'SonarQubeServer'
                 // Define SonarQube token
-                SONARQUBE_TOKEN = 'squ_17d808cada009d8d8ded7f20fa3608f94f587352'
+                SONAR_TOKEN = 'squ_17d808cada009d8d8ded7f20fa3608f94f587352'
                 // Define Docker Hub credentials ID
                 DOCKERHUB_CREDENTIALS_ID = '797c8c7b-dc68-40fd-9269-60fe100f457c'
                 // Define Docker Hub repository name
@@ -51,11 +51,11 @@ pipeline {
                 withSonarQubeEnv(SONARQUBE_SERVER) {
                 bat """
                     sonar-scanner ^
-                    -Dsonar.projectKey=OTP2week1InClass ^
+                    -Dsonar.projectKey=OTP2InClass ^
                     -Dsonar.sources=src ^
                     -Dsonar.projectName=OTP2InClass ^
                     -Dsonar.host.url=http://localhost:9000 ^
-                    -Dsonar.login=${env.SONARQUBE_TOKEN} ^
+                    -Dsonar.login=${SONAR_TOKEN} ^
                     -Dsonar.java.binaries=target/classes ^
                 """
                 }
