@@ -48,7 +48,10 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
+            script {
+                // Define SonarQube scanner home
             def scannerHome = tool 'SonarQube Scanner'
+
                 withSonarQubeEnv(SONARQUBE_SERVER) {
                     bat """
                         sonar-scanner ^
@@ -60,6 +63,7 @@ pipeline {
                         -Dsonar.java.binaries=target/classes ^
                     """
                 }
+            }
             }
         }
         stage('Build Docker Image') {
