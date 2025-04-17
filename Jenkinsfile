@@ -48,9 +48,9 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv("SonarQubeServer") {
+                withSonarQubeEnv(SONARQUBE_SERVER) {
                 bat """
-                sonar-scanner ^
+                    sonar-scanner ^
                     -Dsonar.projectKey=OTP2week1InClass ^
                     -Dsonar.sources=src ^
                     -Dsonar.projectName=OTP2InClass ^
