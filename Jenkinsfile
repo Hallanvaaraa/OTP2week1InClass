@@ -55,7 +55,7 @@ pipeline {
                     -Dsonar.sources=src ^
                     -Dsonar.projectName=OTP2InClass ^
                     -Dsonar.host.url=http://localhost:9000 ^
-                    -Dsonar.login=${SONAR_TOKEN} ^
+                    -Dsonar.login=${env.SONAR_TOKEN} ^
                     -Dsonar.java.binaries=target/classes ^
                 """
                 }
