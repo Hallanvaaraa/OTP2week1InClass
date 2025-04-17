@@ -48,16 +48,16 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(SONARQUBE_SERVER) {
-                bat """
-                    sonar-scanner ^
-                    -Dsonar.projectKey=OTP2InClass ^
-                    -Dsonar.sources=src ^
-                    -Dsonar.projectName=OTP2InClass ^
-                    -Dsonar.host.url=http://localhost:9000 ^
-                    -Dsonar.login=${env.SONAR_TOKEN} ^
-                    -Dsonar.java.binaries=target/classes ^
-                """
+                withSonarQubeEnv('SonarQubeServer') {
+                    bat """
+                        sonar-scanner ^
+                        -Dsonar.projectKey=OTP2InClass ^
+                        -Dsonar.sources=src ^
+                        -Dsonar.projectName=OTP2InClass ^
+                        -Dsonar.host.url=http://localhost:9000 ^
+                        -Dsonar.login=${env.SONAR_TOKEN} ^
+                        -Dsonar.java.binaries=target/classes ^
+                    """
                 }
             }
         }
