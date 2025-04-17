@@ -53,15 +53,7 @@ pipeline {
             def scannerHome = tool 'SonarQube Scanner'
 
                 withSonarQubeEnv(SONARQUBE_SERVER) {
-                    bat """
-                        sonar-scanner ^
-                        -Dsonar.projectKey=OTP2InClass ^
-                        -Dsonar.sources=src ^
-                        -Dsonar.projectName=OTP2InClass ^
-                        -Dsonar.host.url=http://localhost:9000 ^
-                        -Dsonar.login=${env.SONAR_TOKEN} ^
-                        -Dsonar.java.binaries=target/classes ^
-                    """
+                    bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=OTP2InClass -Dsonar.sources=src -Dsonar.projectName=OTP2InClass -Dsonar.host.url=http://localhost:9000 -Dsonar.token=${SONAR_TOKEN} -Dsonar.binaries=target/classes -Dsonar.java.binaries=target/classes"
                 }
             }
             }
