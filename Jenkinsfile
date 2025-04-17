@@ -51,7 +51,7 @@ pipeline {
                 withSonarQubeEnv(SONARQUBE_SERVER) {
                 bat """
                 sonar-scanner ^
-                    -Dsonar.projectKey=devops-demo ^
+                    -Dsonar.projectKey=OTP2week1InClass ^
                     -Dsonar.sources=src ^
                     -Dsonar.projectName=OTP2InClass ^
                     -Dsonar.host.url=http://localhost:9000 ^
